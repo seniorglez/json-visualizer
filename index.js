@@ -1,11 +1,16 @@
 import * as React from 'react';
 import reactdom from 'react-dom';
-import { Button } from '@uda/bento-components';
+import { Table } from '@uda/bento-components';
+
+rowData=[]
+
+const cols = [{ headerName: "precio", field: "precio", align: "center" } , {aquiotracol}]
 
 const Sample = () => (
-  <Button>
-    Bento rules!
-  </Button>
-);
+    
+    <div>
+      <Table columns={cols} domLayout="autoHeight" />
+    </div>
+  );
 
 reactdom.render(<Sample/>,document.body)
