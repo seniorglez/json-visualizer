@@ -17,9 +17,10 @@
   },
   "homepage": "https://github.com/seniorglez/json-visualizer#readme",
   "dependencies": {
+    "@storybook/addon-knobs": "^6.1.11",
     "@uda/bento-components": "^1.0.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
     "styled-components": "^5.1.0"
   },
   "devDependencies": {
