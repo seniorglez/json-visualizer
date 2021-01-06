@@ -1,11 +1,20 @@
 // example https://github.com/urbandataanalytics/bento-components/blob/develop/src/components/Table/Table.stories.js
 
-
 import * as React from 'react';
 import reactdom from 'react-dom';
 import { Table, IconGlobal } from '@uda/bento-components';
-import { boolean, select } from '@storybook/addon-knobs'
+/*
+Work Arround for 'theme.color is undefined' bug.
 
+I have to do the import in this way because the compiled files of the library do not export AppTheme
+
+some context:
+
+AppTheme is the Bento's custom ThemeProvider (https://styled-components.com/docs/api#themeprovider) and it have to inject 
+the bento's default theme into all styled components. So if this app can't import AppTheme, "theme" will not be available 
+in this context therefore theme.color will not be available either
+*/
+import AppTheme from './node_modules/@uda/bento-components/lib/themes/index'
 const decoratorStyles = {
   padding: '2rem'
 };
@@ -46,12 +55,13 @@ const rowData = [
 ];
 
 const Sample = () => (
-    
-    <div style = {decoratorStyles}>
-      <Table columnsDef={columnDefs} 
+  <AppTheme>
+    <div style={decoratorStyles}>
+      <Table columns={columnDefs} 
         rows={rowData}
         domLayout="autoHeight" />
     </div>
-  );
+  </AppTheme>
+);
 
 reactdom.render(<Sample/>,document.body)
